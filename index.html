@@ -1,0 +1,1284 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NetSkagaIT — Jasa Instalasi Jaringan & Rakit PC Terpercaya</title>
+<meta name="description" content="NetSkagaIT menyediakan jasa instalasi jaringan, rakit PC custom, dan penjualan komponen komputer untuk rumah, kantor, sekolah, dan UMKM.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FFFFFF;
+    --bg-soft:#F4F8FF;
+    --bg-elev:#FFFFFF;
+    --bg-elev-2:#F0F5FF;
+    --border:#E3EAF6;
+    --border-strong:#CBD8EF;
+    --blue:#2F6BFF;
+    --blue-deep:#1E4FD6;
+    --blue-navy:#0B1F3A;
+    --cyan:#22B8F0;
+    --navy:#0B1F3A;
+    --text:#4A5670;
+    --text-dim:#8894AC;
+    --success:#189A63;
+    --radius-sm:8px;
+    --radius-md:14px;
+    --radius-lg:22px;
+    --maxw:1180px;
+    --font-head:'Space Grotesk', system-ui, sans-serif;
+    --font-body:'Inter', system-ui, sans-serif;
+    --font-mono:'IBM Plex Mono', ui-monospace, monospace;
+    --shadow-card:0 10px 28px -14px rgba(20,45,110,0.16);
+    --shadow-card-hover:0 16px 36px -14px rgba(20,45,110,0.24);
+  }
+
+  *,*::before,*::after{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important;}
+  }
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--navy);
+    font-family:var(--font-body);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  img,svg{display:block; max-width:100%;}
+  a{color:inherit; text-decoration:none;}
+  ul{margin:0; padding:0; list-style:none;}
+  h1,h2,h3,h4{font-family:var(--font-head); margin:0; line-height:1.15; font-weight:600; color:var(--navy);}
+  p{margin:0; color:var(--text);}
+  section{position:relative;}
+  .container{max-width:var(--maxw); margin:0 auto; padding:0 24px;}
+  @media (max-width:640px){ .container{padding:0 18px;} }
+
+  ::selection{background:var(--blue); color:#fff;}
+
+  :focus-visible{
+    outline:2px solid var(--blue);
+    outline-offset:3px;
+    border-radius:4px;
+  }
+
+  /* soft decorative blobs */
+  body::before{
+    content:"";
+    position:fixed; inset:0;
+    background-image:
+      radial-gradient(circle at 92% 4%, rgba(47,107,255,0.08), transparent 40%),
+      radial-gradient(circle at 4% 40%, rgba(34,184,240,0.07), transparent 38%);
+    z-index:-1;
+    pointer-events:none;
+  }
+
+  /* ---------- buttons ---------- */
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center; gap:8px;
+    padding:13px 26px;
+    border-radius:10px;
+    font-family:var(--font-body);
+    font-weight:600;
+    font-size:15px;
+    cursor:pointer;
+    border:1px solid transparent;
+    transition:transform .18s ease, box-shadow .18s ease, background .18s ease, border-color .18s ease;
+    white-space:nowrap;
+  }
+  .btn:active{transform:translateY(1px);}
+  .btn-primary{
+    background:linear-gradient(135deg, var(--blue), var(--blue-deep));
+    color:#fff;
+    box-shadow:0 10px 26px -8px rgba(47,107,255,0.55);
+  }
+  .btn-primary:hover{ box-shadow:0 12px 30px -6px rgba(47,107,255,0.65); transform:translateY(-1px); }
+  .btn-ghost{
+    background:#fff;
+    color:var(--navy);
+    border-color:var(--border-strong);
+  }
+  .btn-ghost:hover{ background:var(--bg-soft); border-color:var(--blue); }
+  .btn-on-blue{
+    background:#fff; color:var(--blue-deep);
+  }
+  .btn-on-blue:hover{ background:#EAF1FF; }
+  .btn-sm{ padding:9px 16px; font-size:13px; border-radius:8px; }
+  .btn-block{width:100%;}
+
+  /* ---------- nav ---------- */
+  header{
+    position:sticky; top:0; z-index:100;
+    background:rgba(255,255,255,0.85);
+    backdrop-filter:blur(14px) saturate(140%);
+    -webkit-backdrop-filter:blur(14px) saturate(140%);
+    border-bottom:1px solid var(--border);
+  }
+  .nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:16px 24px;
+    max-width:var(--maxw); margin:0 auto;
+  }
+  .logo{
+    display:flex; align-items:center; gap:10px;
+    font-family:var(--font-head); font-weight:700; font-size:19px; letter-spacing:0.2px;
+    color:var(--navy);
+  }
+  .logo-mark{
+    width:34px; height:34px; border-radius:9px;
+    background:linear-gradient(135deg, var(--blue), var(--cyan));
+    position:relative; flex-shrink:0;
+  }
+  .logo-mark::before{
+    content:""; position:absolute; inset:9px;
+    border:2px solid #fff; border-radius:3px;
+  }
+  .nav-links{ display:flex; align-items:center; gap:28px; }
+  .nav-links a{
+    font-size:14.5px; font-weight:500; color:var(--text);
+    transition:color .15s ease; position:relative;
+  }
+  .nav-links a:hover{ color:var(--blue); }
+  .nav-cta{ display:flex; align-items:center; gap:12px; }
+  .nav-phone{ display:flex; flex-direction:column; text-align:right; font-size:12.5px; color:var(--text-dim); }
+  .nav-phone strong{ color:var(--navy); font-family:var(--font-mono); font-size:13.5px; font-weight:600;}
+
+  .burger{
+    display:none; flex-direction:column; gap:5px;
+    background:none; border:none; cursor:pointer; padding:8px;
+  }
+  .burger span{ width:22px; height:2px; background:var(--navy); border-radius:2px; transition:.25s;}
+  .mobile-panel{
+    display:none;
+    position:fixed; inset:0 0 0 auto; top:65px;
+    background:#fff; border-left:1px solid var(--border);
+    width:min(78vw, 320px); height:calc(100vh - 65px);
+    padding:26px 24px; z-index:99;
+    transform:translateX(100%); transition:transform .3s ease;
+    overflow-y:auto;
+    box-shadow:-10px 0 30px -10px rgba(20,45,110,0.15);
+  }
+  .mobile-panel.open{ transform:translateX(0); }
+  .mobile-panel a{
+    display:block; padding:13px 4px; font-size:16px; color:var(--navy);
+    border-bottom:1px solid var(--border); font-weight:500;
+  }
+  .mobile-panel .btn{ margin-top:20px; }
+
+  @media (max-width:900px){
+    .nav-links{ display:none; }
+    .nav-phone{ display:none; }
+    .burger{ display:flex; }
+  }
+
+  /* ---------- hero ---------- */
+  .hero{ padding:64px 0 90px; }
+  .hero-grid{
+    display:grid; grid-template-columns:1.05fr 0.95fr; gap:40px; align-items:center;
+  }
+  .hero-copy .kicker{
+    display:inline-flex; align-items:center; gap:8px;
+    font-size:13.5px; color:var(--blue); font-weight:600;
+    margin-bottom:20px;
+    background:var(--bg-soft); padding:7px 14px 7px 12px; border-radius:20px;
+    border:1px solid var(--border);
+  }
+  .kicker::before{ content:""; width:7px; height:7px; border-radius:50%; background:var(--blue);}
+  .hero h1{
+    font-size:clamp(32px, 4.2vw, 50px);
+    letter-spacing:-0.5px;
+    margin-bottom:22px;
+    color:var(--navy);
+  }
+  .hero h1 .accent{
+    background:linear-gradient(100deg, var(--blue), var(--cyan));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .hero p.lead{
+    font-size:17.5px; color:var(--text); max-width:500px; margin-bottom:34px;
+  }
+  .hero-actions{ display:flex; gap:14px; flex-wrap:wrap; margin-bottom:44px; }
+  .hero-stats{
+    display:flex; gap:30px; flex-wrap:wrap;
+    padding-top:26px; border-top:1px solid var(--border);
+  }
+  .hero-stats div{ display:flex; flex-direction:column; gap:2px; }
+  .hero-stats strong{
+    font-family:var(--font-head); font-size:22px; color:var(--navy);
+  }
+  .hero-stats span{ font-size:12.5px; color:var(--text-dim); }
+
+  /* hero visual: blue diagonal panel with network diagram */
+  .hero-visual{
+    position:relative;
+    background:linear-gradient(150deg, var(--blue) 0%, var(--blue-deep) 55%, #14306E 100%);
+    border-radius:28px;
+    padding:26px;
+    box-shadow:0 24px 50px -18px rgba(30,79,214,0.45);
+    overflow:hidden;
+  }
+  .hero-visual::before{
+    content:"";
+    position:absolute; width:220px; height:220px; border-radius:50%;
+    background:rgba(255,255,255,0.08);
+    top:-60px; right:-60px;
+  }
+  .hero-visual::after{
+    content:"";
+    position:absolute; width:160px; height:160px; border-radius:50%;
+    background:rgba(255,255,255,0.06);
+    bottom:-50px; left:-40px;
+  }
+  .hero-visual svg{ width:100%; height:auto; position:relative; z-index:1; }
+  .net-line{ stroke:rgba(255,255,255,0.55); stroke-width:1.6; fill:none; }
+  .net-line.flow{ stroke-dasharray:6 8; animation:flow 6s linear infinite; }
+  @keyframes flow{ to{ stroke-dashoffset:-140; } }
+  .net-node-glow{ animation:pulseGlow 2.8s ease-in-out infinite; fill:#fff; }
+  .net-node-glow.d2{ animation-delay:.5s; }
+  .net-node-glow.d3{ animation-delay:1s; }
+  .net-node-glow.d4{ animation-delay:1.5s; }
+  @keyframes pulseGlow{
+    0%,100%{ opacity:0.55; r:5; }
+    50%{ opacity:1; r:6.5; }
+  }
+  .net-label{
+    font-family:var(--font-mono); font-size:10.5px; fill:rgba(255,255,255,0.78); letter-spacing:0.3px;
+  }
+
+  @media (max-width:900px){
+    .hero{ padding:40px 0 56px; }
+    .hero-grid{ grid-template-columns:1fr; gap:32px; }
+    .hero p.lead{ max-width:none; }
+    .hero-visual{ order:-1; }
+    .hero-stats{ gap:22px; }
+  }
+
+  /* ---------- section header ---------- */
+  .section{ padding:84px 0; }
+  .section.alt{ background:var(--bg-soft); border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
+  .sec-head{ max-width:640px; margin-bottom:50px; }
+  .sec-head h2{ font-size:clamp(25px, 3vw, 34px); margin-bottom:14px; letter-spacing:-0.3px; }
+  .sec-head p{ color:var(--text); font-size:16px; }
+  @media (max-width:640px){ .section{ padding:56px 0; } .sec-head{ margin-bottom:34px; } }
+
+  /* ---------- services (only 2, larger feature cards) ---------- */
+  .services-grid{
+    display:grid; grid-template-columns:repeat(2, 1fr); gap:22px;
+  }
+  .service-card{
+    background:var(--bg-elev);
+    border:1px solid var(--border);
+    border-radius:var(--radius-lg);
+    padding:34px 30px;
+    box-shadow:var(--shadow-card);
+    transition:border-color .2s ease, transform .2s ease, box-shadow .2s ease;
+  }
+  .service-card:hover{
+    border-color:var(--blue);
+    transform:translateY(-4px);
+    box-shadow:var(--shadow-card-hover);
+  }
+  .service-icon{
+    width:52px; height:52px; border-radius:13px;
+    background:linear-gradient(135deg, var(--blue), var(--cyan));
+    display:flex; align-items:center; justify-content:center;
+    margin-bottom:20px;
+  }
+  .service-icon svg{ width:24px; height:24px; stroke:#fff; }
+  .service-card h3{ font-size:20px; margin-bottom:10px; }
+  .service-card p{ font-size:15px; color:var(--text); margin-bottom:16px; }
+  .service-tags{ display:flex; flex-wrap:wrap; gap:8px; }
+  .service-tags span{
+    font-family:var(--font-mono); font-size:11.5px; color:var(--blue-deep);
+    background:var(--bg-soft); border:1px solid var(--border); padding:5px 10px; border-radius:6px;
+  }
+  @media (max-width:760px){ .services-grid{ grid-template-columns:1fr; } }
+
+  /* ---------- process ---------- */
+  .process{
+    display:grid; grid-template-columns:repeat(5,1fr); gap:0;
+    position:relative;
+  }
+  .process::before{
+    content:""; position:absolute; top:23px; left:10%; right:10%; height:1px;
+    background:linear-gradient(90deg, transparent, var(--border-strong), transparent);
+  }
+  .process-step{ padding:0 14px; position:relative; }
+  .process-num{
+    width:46px; height:46px; border-radius:50%;
+    background:#fff; border:1px solid var(--border-strong);
+    display:flex; align-items:center; justify-content:center;
+    font-family:var(--font-mono); font-size:15px; color:var(--blue); font-weight:600;
+    margin-bottom:18px; position:relative; z-index:1;
+    box-shadow:var(--shadow-card);
+  }
+  .process-step h4{ font-size:15.5px; margin-bottom:8px; }
+  .process-step p{ font-size:13.5px; }
+  @media (max-width:900px){
+    .process{ grid-template-columns:1fr 1fr; gap:28px 16px; }
+    .process::before{ display:none; }
+  }
+  @media (max-width:560px){ .process{ grid-template-columns:1fr; } }
+
+  /* ---------- pc builder ---------- */
+  .builder{
+    background:var(--bg-elev);
+    border:1px solid var(--border);
+    border-radius:var(--radius-lg);
+    padding:38px;
+    box-shadow:var(--shadow-card);
+    display:grid; grid-template-columns:0.85fr 1.15fr; gap:36px;
+  }
+  .builder-controls label{
+    display:block; font-size:13px; color:var(--text); margin-bottom:8px; font-weight:600;
+  }
+  .field{ margin-bottom:22px; }
+  select{
+    width:100%; padding:13px 14px; border-radius:9px;
+    background:#fff; border:1px solid var(--border-strong); color:var(--navy);
+    font-family:var(--font-body); font-size:14.5px; cursor:pointer;
+    appearance:none;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%238894AC' stroke-width='2'><path d='M6 9l6 6 6-6'/></svg>");
+    background-repeat:no-repeat; background-position:right 14px center;
+  }
+  select:focus{ border-color:var(--blue); }
+  .builder-note{ font-size:12.5px; color:var(--text-dim); line-height:1.6; margin-top:6px; }
+  .build-result{
+    background:var(--bg-soft); border:1px solid var(--border); border-radius:var(--radius-md);
+    padding:26px;
+  }
+  .build-result-head{ display:flex; justify-content:space-between; align-items:baseline; margin-bottom:18px; flex-wrap:wrap; gap:8px;}
+  .build-result-head h4{ font-size:16px; }
+  .build-price{ font-family:var(--font-mono); color:var(--blue-deep); font-size:19px; font-weight:600; }
+  .spec-row{
+    display:flex; justify-content:space-between; gap:14px;
+    padding:11px 0; border-bottom:1px solid var(--border);
+    font-size:14px;
+  }
+  .spec-row:last-child{ border-bottom:none; }
+  .spec-row .k{ color:var(--text); }
+  .spec-row .v{ font-family:var(--font-mono); color:var(--navy); text-align:right; font-size:13px; }
+  @media (max-width:800px){
+    .builder{ grid-template-columns:1fr; padding:26px; }
+  }
+
+  /* ---------- network guide accordion ---------- */
+  .accordion{ display:flex; flex-direction:column; gap:12px; max-width:760px; }
+  details{
+    background:var(--bg-elev); border:1px solid var(--border); border-radius:var(--radius-md);
+    overflow:hidden;
+    box-shadow:var(--shadow-card);
+  }
+  details[open]{ border-color:var(--blue); }
+  summary{
+    list-style:none; cursor:pointer;
+    display:flex; align-items:center; gap:16px;
+    padding:20px 24px; font-weight:600; color:var(--navy); font-size:15.5px;
+  }
+  summary::-webkit-details-marker{ display:none; }
+  summary .step-tag{
+    font-family:var(--font-mono); color:var(--blue); font-size:13px; flex-shrink:0;
+  }
+  summary .chev{
+    margin-left:auto; width:18px; height:18px; flex-shrink:0;
+    transition:transform .25s ease; color:var(--text-dim);
+  }
+  details[open] summary .chev{ transform:rotate(180deg); }
+  .accordion-body{ padding:0 24px 22px 62px; color:var(--text); font-size:14.5px; }
+  .accordion-body ul{ margin-top:8px; padding-left:18px; list-style:disc; }
+  .accordion-body li{ margin-bottom:6px; }
+
+  /* ---------- produk ---------- */
+  .produk-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+  .produk-card{
+    background:var(--bg-elev); border:1px solid var(--border); border-radius:var(--radius-md);
+    overflow:hidden; transition:transform .2s ease, box-shadow .2s ease;
+    box-shadow:var(--shadow-card);
+    display:flex; flex-direction:column;
+  }
+  .produk-card:hover{ transform:translateY(-3px); box-shadow:var(--shadow-card-hover); }
+  .produk-thumb{
+    height:140px; position:relative; overflow:hidden;
+    background:linear-gradient(135deg, #EAF1FF, #F6FAFF);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .produk-thumb svg{ width:48px; height:48px; stroke:var(--blue-deep); }
+  .produk-body{ padding:20px 22px; display:flex; flex-direction:column; flex-grow:1; }
+  .produk-cat{ font-family:var(--font-mono); font-size:11px; color:var(--blue); margin-bottom:8px; display:block; }
+  .produk-body h4{ font-size:16px; margin-bottom:8px; }
+  .produk-body p{ font-size:13.5px; margin-bottom:16px; flex-grow:1; }
+  .produk-link{
+    display:inline-flex; align-items:center; gap:6px;
+    font-size:13.5px; font-weight:600; color:var(--blue-deep);
+    padding-top:14px; border-top:1px solid var(--border);
+  }
+  .produk-link svg{ width:14px; height:14px; stroke:var(--blue-deep); }
+  .produk-note{ font-size:12.5px; color:var(--text-dim); margin-top:24px; }
+  @media (max-width:900px){ .produk-grid{ grid-template-columns:repeat(2,1fr); } }
+  @media (max-width:600px){ .produk-grid{ grid-template-columns:1fr; } }
+
+  /* ---------- portfolio (3 items) ---------- */
+  .portfolio-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+  .portfolio-card{
+    background:var(--bg-elev); border:1px solid var(--border); border-radius:var(--radius-md);
+    overflow:hidden; transition:transform .2s ease, box-shadow .2s ease;
+    box-shadow:var(--shadow-card);
+  }
+  .portfolio-card:hover{ transform:translateY(-3px); box-shadow:var(--shadow-card-hover); }
+  .portfolio-thumb{
+    height:150px; position:relative; overflow:hidden;
+    background:linear-gradient(135deg, #EAF1FF, #F6FAFF);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .portfolio-thumb svg{ width:52px; height:52px; stroke:var(--blue-deep); }
+  .portfolio-body{ padding:20px 22px; }
+  .portfolio-cat{ font-family:var(--font-mono); font-size:11px; color:var(--blue); margin-bottom:8px; display:block; }
+  .portfolio-body h4{ font-size:16px; margin-bottom:8px; }
+  .portfolio-body p{ font-size:13.5px; }
+  @media (max-width:900px){ .portfolio-grid{ grid-template-columns:repeat(2,1fr); } }
+  @media (max-width:600px){ .portfolio-grid{ grid-template-columns:1fr; } }
+
+  /* ---------- pricing ---------- */
+  .pricing-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:20px; max-width:800px; }
+  .price-card{
+    background:var(--bg-elev); border:1px solid var(--border); border-radius:var(--radius-md);
+    padding:28px 26px; display:flex; flex-direction:column;
+    box-shadow:var(--shadow-card);
+  }
+  .price-card.featured{ border-color:var(--blue); background:linear-gradient(180deg, #EEF3FF, var(--bg-elev) 45%); }
+  .price-badge{
+    align-self:flex-start; font-size:11px; font-weight:700; color:var(--blue-deep);
+    background:var(--bg-soft); padding:4px 10px; border-radius:6px; margin-bottom:14px;
+  }
+  .price-card h4{ font-size:17px; margin-bottom:6px; }
+  .price-from{ font-size:12.5px; color:var(--text-dim); margin-bottom:4px; }
+  .price-amount{ font-family:var(--font-mono); font-size:25px; color:var(--blue-deep); font-weight:600; margin-bottom:18px; }
+  .price-list{ display:flex; flex-direction:column; gap:10px; margin-bottom:22px; flex-grow:1; }
+  .price-list li{ display:flex; gap:9px; font-size:13.5px; color:var(--text); align-items:flex-start; }
+  .price-list li svg{ width:15px; height:15px; stroke:var(--success); flex-shrink:0; margin-top:2px; }
+  .pricing-disclaimer{ font-size:12.5px; color:var(--text-dim); margin-top:24px; }
+  @media (max-width:560px){ .pricing-grid{ grid-template-columns:1fr; } }
+
+  /* ---------- faq ---------- */
+  .faq-wrap{ max-width:760px; }
+
+  /* ---------- contact ---------- */
+  .contact-grid{ display:grid; grid-template-columns:1fr 1fr; gap:44px; }
+  .contact-info-card{
+    background:var(--bg-elev); border:1px solid var(--border); border-radius:var(--radius-md);
+    padding:28px; margin-bottom:16px;
+    box-shadow:var(--shadow-card);
+  }
+  .contact-row{ display:flex; gap:14px; align-items:flex-start; padding:14px 0; border-bottom:1px solid var(--border); }
+  .contact-row:last-child{ border-bottom:none; }
+  .contact-row .ic{
+    width:38px; height:38px; border-radius:9px; background:var(--bg-soft);
+    border:1px solid var(--border); display:flex; align-items:center; justify-content:center; flex-shrink:0;
+  }
+  .contact-row .ic svg{ width:17px; height:17px; stroke:var(--blue-deep); }
+  .contact-row strong{ display:block; font-size:14px; margin-bottom:3px; }
+  .contact-row span, .contact-row a{ font-size:13.5px; color:var(--text); }
+  .map-box{
+    height:170px; border-radius:var(--radius-md); border:1px solid var(--border);
+    background:linear-gradient(135deg, #EAF1FF, #F6FAFF);
+    display:flex; align-items:center; justify-content:center; color:var(--text-dim); font-size:13px;
+    position:relative; overflow:hidden;
+  }
+
+  .form-card{
+    background:var(--bg-elev); border:1px solid var(--border); border-radius:var(--radius-lg);
+    padding:32px;
+    box-shadow:var(--shadow-card);
+  }
+  .form-row{ margin-bottom:18px; }
+  .form-row label{ display:block; font-size:13px; color:var(--text); margin-bottom:8px; font-weight:600; }
+  .form-row input, .form-row select, .form-row textarea{
+    width:100%; padding:13px 14px; border-radius:9px;
+    background:#fff; border:1px solid var(--border-strong); color:var(--navy);
+    font-family:var(--font-body); font-size:14.5px;
+  }
+  .form-row textarea{ resize:vertical; min-height:100px; }
+  .form-row input:focus, .form-row select:focus, .form-row textarea:focus{ border-color:var(--blue); }
+  .form-grid-2{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  .form-note{ font-size:12px; color:var(--text-dim); margin-top:14px; text-align:center; }
+  @media (max-width:900px){
+    .contact-grid{ grid-template-columns:1fr; }
+    .form-grid-2{ grid-template-columns:1fr; }
+  }
+
+  /* ---------- final cta ---------- */
+  .final-cta{
+    background:linear-gradient(135deg, var(--blue), var(--blue-deep));
+    border-radius:var(--radius-lg);
+    padding:54px 44px;
+    display:flex; align-items:center; justify-content:space-between; gap:30px; flex-wrap:wrap;
+    box-shadow:0 24px 50px -18px rgba(30,79,214,0.4);
+  }
+  .final-cta h3{ font-size:clamp(22px,2.6vw,30px); color:#fff; margin-bottom:10px; }
+  .final-cta p{ color:rgba(255,255,255,0.85); font-size:15px; max-width:440px; }
+  .final-cta-actions{ display:flex; gap:12px; flex-wrap:wrap; }
+
+  /* ---------- footer ---------- */
+  footer{ border-top:1px solid var(--border); padding:56px 0 28px; background:var(--bg-soft); }
+  .footer-grid{ display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:40px; margin-bottom:44px; }
+  .footer-about p{ color:var(--text); font-size:13.5px; margin-top:14px; max-width:280px; }
+  .footer-col h5{ font-size:13.5px; margin-bottom:16px; font-weight:600; }
+  .footer-col a{ display:block; font-size:13.5px; color:var(--text); margin-bottom:11px; transition:color .15s; }
+  .footer-col a:hover{ color:var(--blue); }
+  .footer-bottom{
+    display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px;
+    padding-top:26px; border-top:1px solid var(--border);
+    font-size:12.5px; color:var(--text-dim);
+  }
+  .social-row{ display:flex; gap:10px; }
+  .social-row a{
+    width:34px; height:34px; border-radius:8px; border:1px solid var(--border-strong);
+    display:flex; align-items:center; justify-content:center; color:var(--text);
+    background:#fff;
+  }
+  .social-row a:hover{ color:var(--blue); border-color:var(--blue); }
+  @media (max-width:800px){ .footer-grid{ grid-template-columns:1fr 1fr; } }
+  @media (max-width:520px){ .footer-grid{ grid-template-columns:1fr; } }
+
+  /* whatsapp floating button */
+  .wa-float{
+    position:fixed; bottom:22px; right:22px; z-index:90;
+    width:56px; height:56px; border-radius:50%;
+    background:linear-gradient(135deg, #25D366, #1DA851);
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:0 8px 24px -6px rgba(37,211,102,0.6);
+    transition:transform .2s ease;
+  }
+  .wa-float:hover{ transform:scale(1.07); }
+  .wa-float svg{ width:26px; height:26px; fill:#fff; }
+
+  .reveal{ opacity:0; transform:translateY(14px); transition:opacity .6s ease, transform .6s ease; }
+  .reveal.in{ opacity:1; transform:translateY(0); }
+
+  code, .mono{ font-family:var(--font-mono); }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="nav">
+    <a href="#top" class="logo">
+      <span class="logo-mark" aria-hidden="true"></span>
+      NetSkagaIT
+    </a>
+    <ul class="nav-links">
+      <li><a href="#layanan">Layanan</a></li>
+      <li><a href="#produk">Produk</a></li>
+      <li><a href="#portofolio">Portofolio</a></li>
+      <li><a href="#pc-builder">Panduan PC</a></li>
+      <li><a href="#panduan-jaringan">Panduan Jaringan</a></li>
+      <li><a href="#harga">Estimasi Harga</a></li>
+    </ul>
+    <div class="nav-cta">
+      <div class="nav-phone">
+        <span>Hubungi kami</span>
+        <strong>0822-2841-6336</strong>
+      </div>
+      <a href="#kontak" class="btn btn-primary btn-sm">Konsultasi Gratis</a>
+      <button class="burger" id="burgerBtn" aria-label="Buka menu" aria-expanded="false" aria-controls="mobilePanel">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="mobile-panel" id="mobilePanel">
+    <a href="#layanan">Layanan</a>
+    <a href="#produk">Produk</a>
+    <a href="#portofolio">Portofolio</a>
+    <a href="#pc-builder">Panduan PC</a>
+    <a href="#panduan-jaringan">Panduan Jaringan</a>
+    <a href="#harga">Estimasi Harga</a>
+    <a href="#faq">FAQ</a>
+    <a href="#kontak">Kontak</a>
+    <a href="#kontak" class="btn btn-primary btn-block">Konsultasi Gratis</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <span class="kicker">Melayani rumah, kantor, sekolah &amp; UMKM</span>
+        <h1>Jaringan stabil, PC gesit,<br><span class="accent">kerja tanpa gangguan.</span></h1>
+        <p class="lead">NetSkagaIT menangani instalasi jaringan dan rakit PC custom — dikerjakan teknisi berpengalaman dengan harga yang jelas sejak awal, plus komponen komputer yang bisa langsung Anda beli.</p>
+        <div class="hero-actions">
+          <a href="https://wa.me/6282228416336" target="_blank" rel="noopener" class="btn btn-primary">Konsultasi Gratis via WhatsApp</a>
+          <a href="#layanan" class="btn btn-ghost">Lihat Layanan</a>
+        </div>
+        <div class="hero-stats">
+          <div><strong>Teknisi</strong><span>Berpengalaman di lapangan</span></div>
+          <div><strong>Harga</strong><span>Jelas &amp; transparan sejak awal</span></div>
+          <div><strong>Respon</strong><span>Cepat via WhatsApp</span></div>
+        </div>
+      </div>
+
+      <div class="hero-visual" aria-hidden="true">
+        <svg viewBox="0 0 520 460" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- connecting lines from hub to nodes -->
+          <path class="net-line flow" d="M260 220 L110 90"/>
+          <path class="net-line flow" d="M260 220 L400 80"/>
+          <path class="net-line flow" d="M260 220 L90 260"/>
+          <path class="net-line flow" d="M260 220 L430 260"/>
+          <path class="net-line flow" d="M260 220 L150 380"/>
+          <path class="net-line flow" d="M260 220 L370 390"/>
+
+          <!-- hub -->
+          <circle cx="260" cy="220" r="30" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.6)" stroke-width="1.6"/>
+          <rect x="245" y="207" width="30" height="26" rx="3" fill="none" stroke="#fff" stroke-width="1.4"/>
+          <line x1="250" y1="215" x2="270" y2="215" stroke="#fff" stroke-width="1.4"/>
+          <text x="260" y="262" text-anchor="middle" class="net-label">ROUTER UTAMA</text>
+
+          <!-- node: PC -->
+          <circle class="net-node-glow" cx="110" cy="90" r="5"/>
+          <rect x="90" y="60" width="40" height="26" rx="3" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.5)" stroke-width="1.2"/>
+          <text x="110" y="105" text-anchor="middle" class="net-label">PC KANTOR</text>
+
+          <!-- node: laptop -->
+          <circle class="net-node-glow d2" cx="400" cy="80" r="5"/>
+          <rect x="378" y="52" width="44" height="28" rx="3" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.5)" stroke-width="1.2"/>
+          <text x="400" y="97" text-anchor="middle" class="net-label">LAPTOP</text>
+
+          <!-- node: printer -->
+          <circle class="net-node-glow d3" cx="90" cy="260" r="5"/>
+          <rect x="66" y="232" width="48" height="26" rx="3" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.5)" stroke-width="1.2"/>
+          <text x="90" y="276" text-anchor="middle" class="net-label">PRINTER</text>
+
+          <!-- node: switch -->
+          <circle class="net-node-glow d4" cx="430" cy="260" r="5"/>
+          <rect x="406" y="232" width="48" height="26" rx="3" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.5)" stroke-width="1.2"/>
+          <text x="430" y="276" text-anchor="middle" class="net-label">SWITCH</text>
+
+          <!-- node: gaming pc -->
+          <circle class="net-node-glow" cx="150" cy="380" r="5"/>
+          <rect x="126" y="352" width="48" height="26" rx="3" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.5)" stroke-width="1.2"/>
+          <text x="150" y="398" text-anchor="middle" class="net-label">PC GAMING</text>
+
+          <!-- node: wifi device -->
+          <circle class="net-node-glow d2" cx="370" cy="390" r="5"/>
+          <rect x="346" y="362" width="48" height="26" rx="3" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.5)" stroke-width="1.2"/>
+          <text x="370" y="408" text-anchor="middle" class="net-label">WIFI MESH</text>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES (only 2) -->
+  <section class="section" id="layanan">
+    <div class="container">
+      <div class="sec-head">
+        <h2>Layanan utama kami</h2>
+        <p>Kami fokus pada dua layanan ini agar hasil kerja tetap rapi dan berkualitas tinggi.</p>
+      </div>
+      <div class="services-grid">
+
+        <div class="service-card">
+          <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5v14M5 5l14 14M19 5L5 19"/></svg></div>
+          <h3>Instalasi Jaringan</h3>
+          <p>Pemasangan jaringan kabel &amp; WiFi untuk rumah, ruko, kantor, hingga sekolah — termasuk crimping kabel, pengaturan router, access point, dan keamanan dasar.</p>
+          <div class="service-tags"><span>LAN</span><span>WiFi Mesh</span><span>Crimping</span></div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6v6H9z"/></svg></div>
+          <h3>Rakit PC Custom</h3>
+          <p>Perakitan PC sesuai kebutuhan dan budget — gaming, editing, kerja kantor, atau sekolah — lengkap dengan konsultasi pemilihan komponen.</p>
+          <div class="service-tags"><span>Gaming</span><span>Editing</span><span>Office</span></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="section alt">
+    <div class="container">
+      <div class="sec-head">
+        <h2>Cara kerja kami</h2>
+        <p>Prosesnya sederhana dan transparan dari awal konsultasi sampai layanan purna jasa.</p>
+      </div>
+      <div class="process">
+        <div class="process-step">
+          <div class="process-num">01</div>
+          <h4>Konsultasi Kebutuhan</h4>
+          <p>Ceritakan kebutuhan &amp; budget lewat WhatsApp.</p>
+        </div>
+        <div class="process-step">
+          <div class="process-num">02</div>
+          <h4>Survey &amp; Estimasi</h4>
+          <p>Kami cek kondisi lokasi/unit dan berikan estimasi harga jelas.</p>
+        </div>
+        <div class="process-step">
+          <div class="process-num">03</div>
+          <h4>Pengerjaan</h4>
+          <p>Teknisi mengerjakan sesuai jadwal yang disepakati bersama.</p>
+        </div>
+        <div class="process-step">
+          <div class="process-num">04</div>
+          <h4>Uji &amp; Serah Terima</h4>
+          <p>Pengujian menyeluruh sebelum unit/jaringan diserahkan.</p>
+        </div>
+        <div class="process-step">
+          <div class="process-num">05</div>
+          <h4>Garansi &amp; Dukungan</h4>
+          <p>Konsultasi lanjutan tersedia bila ada kendala setelah pengerjaan.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PC BUILDER -->
+  <section class="section" id="pc-builder">
+    <div class="container">
+      <div class="sec-head">
+        <h2>Panduan pilih komponen PC</h2>
+        <p>Bingung menentukan spek yang pas? Pilih kebutuhan dan kisaran budget, kami tampilkan rekomendasi susunan komponennya.</p>
+      </div>
+
+      <div class="builder">
+        <div class="builder-controls">
+          <div class="field">
+            <label for="usecase">Kebutuhan utama</label>
+            <select id="usecase">
+              <option value="office">Kerja / Sekolah Umum</option>
+              <option value="entry-gaming" selected>Gaming Entry Level</option>
+              <option value="mid-gaming">Gaming Menengah</option>
+              <option value="high-gaming">Gaming/Streaming Kelas Atas</option>
+              <option value="content-creator">Editing &amp; Content Creator</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="budget">Kisaran budget</label>
+            <select id="budget">
+              <option value="hemat">Hemat</option>
+              <option value="standar" selected>Standar</option>
+              <option value="premium">Maksimal</option>
+            </select>
+          </div>
+          <p class="builder-note">Rekomendasi ini adalah titik awal, bukan harga final. Tim kami akan menyesuaikan lagi dengan ketersediaan stok dan kebutuhan spesifik Anda saat konsultasi.</p>
+          <a href="https://wa.me/6282228416336" target="_blank" rel="noopener" class="btn btn-primary btn-block" style="margin-top:18px;">Konsultasikan Build Ini</a>
+        </div>
+
+        <div class="build-result">
+          <div class="build-result-head">
+            <h4 id="buildTitle">Gaming Entry Level — Standar</h4>
+            <span class="build-price" id="buildPrice">Rp 11–12 Juta</span>
+          </div>
+          <div id="specList"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NETWORK GUIDE -->
+  <section class="section alt" id="panduan-jaringan">
+    <div class="container">
+      <div class="sec-head">
+        <h2>Panduan instalasi jaringan rumah</h2>
+        <p>Ingin coba pasang sendiri dulu sebelum memanggil teknisi? Ikuti langkah dasar berikut.</p>
+      </div>
+
+      <div class="accordion">
+        <details open>
+          <summary><span class="step-tag">01</span> Tentukan lokasi modem/router yang tepat
+            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </summary>
+          <div class="accordion-body">
+            <p>Letakkan router di area tengah rumah, posisi tinggi, dan jauh dari dinding beton tebal atau benda logam besar. Hindari menaruhnya di dalam lemari tertutup karena sinyal akan tertahan.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary><span class="step-tag">02</span> Pilih antara kabel LAN atau WiFi mesh
+            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </summary>
+          <div class="accordion-body">
+            <p>Untuk PC gaming atau kebutuhan stabil (kerja WFH, streaming), kabel LAN lebih diandalkan. Untuk cakupan luas ke banyak ruangan, WiFi mesh dengan 2–3 titik biasanya lebih praktis.</p>
+            <ul>
+              <li>Rumah 1 lantai kecil: 1 router cukup</li>
+              <li>Rumah 2 lantai / area luas: pertimbangkan mesh 2–3 titik</li>
+            </ul>
+          </div>
+        </details>
+
+        <details>
+          <summary><span class="step-tag">03</span> Atur nama &amp; keamanan WiFi
+            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </summary>
+          <div class="accordion-body">
+            <p>Ganti nama WiFi (SSID) dan password bawaan pabrik. Gunakan enkripsi WPA2 atau WPA3, dan pastikan password login admin router juga diganti dari default.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary><span class="step-tag">04</span> Pisahkan jaringan untuk tamu
+            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </summary>
+          <div class="accordion-body">
+            <p>Aktifkan fitur Guest Network jika tersedia, supaya perangkat tamu tidak bisa mengakses perangkat utama di rumah seperti NAS atau kamera keamanan.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary><span class="step-tag">05</span> Uji kecepatan &amp; jangkauan
+            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </summary>
+          <div class="accordion-body">
+            <p>Cek kecepatan di beberapa titik rumah menggunakan aplikasi speed test. Jika ada area lemah sinyal (dead zone), itu tandanya perlu tambahan access point atau reposisi router.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary><span class="step-tag">06</span> Kapan sebaiknya panggil teknisi
+            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </summary>
+          <div class="accordion-body">
+            <p>Jika rumah/kantor berukuran besar, butuh penarikan kabel rapi antar lantai, atau pengaturan jaringan kantor dengan banyak perangkat — sebaiknya diserahkan ke teknisi agar hasilnya rapi dan stabil jangka panjang.</p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUK -->
+  <section class="section" id="produk">
+    <div class="container">
+      <div class="sec-head">
+        <h2>Produk yang kami jual</h2>
+        <p>Selain jasa, kami juga menyediakan komponen dan perangkat jaringan yang bisa langsung Anda beli. Tanyakan ketersediaan dan harga terbaru via WhatsApp.</p>
+      </div>
+
+      <div class="produk-grid">
+        <div class="produk-card">
+          <div class="produk-thumb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4v16M4 4h6M4 10h6M4 16h6M20 4v16M20 4h-6M20 10h-6M20 16h-6"/></svg></div>
+          <div class="produk-body">
+            <span class="produk-cat">JARINGAN</span>
+            <h4>Kabel LAN &amp; Konektor RJ45</h4>
+            <p>Kabel Cat5e/Cat6 dan konektor RJ45, tersedia meteran maupun per roll, siap crimping di tempat.</p>
+            <a href="https://wa.me/6282228416336?text=Halo%2C%20saya%20mau%20tanya%20produk%20Kabel%20LAN%20%26%20Konektor%20RJ45" target="_blank" rel="noopener" class="produk-link">
+              Cek harga via WhatsApp
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="produk-card">
+          <div class="produk-thumb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12.55a11 11 0 0114.08 0M1.42 9a16 16 0 0121.16 0M8.53 16.11a6 6 0 016.95 0M12 20h.01"/></svg></div>
+          <div class="produk-body">
+            <span class="produk-cat">JARINGAN</span>
+            <h4>Router &amp; Access Point WiFi</h4>
+            <p>Berbagai pilihan router dan access point untuk rumah maupun kantor, dari kelas standar hingga mesh.</p>
+            <a href="https://wa.me/6282228416336?text=Halo%2C%20saya%20mau%20tanya%20produk%20Router%20%26%20Access%20Point%20WiFi" target="_blank" rel="noopener" class="produk-link">
+              Cek harga via WhatsApp
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="produk-card">
+          <div class="produk-thumb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="7" width="18" height="10" rx="1"/><path d="M7 11h.01M11 11h.01M15 11h.01"/></svg></div>
+          <div class="produk-body">
+            <span class="produk-cat">KOMPONEN</span>
+            <h4>RAM DDR4 / DDR5</h4>
+            <p>Modul RAM berbagai kapasitas dan merek, cocok untuk upgrade maupun rakitan baru.</p>
+            <a href="https://wa.me/6282228416336?text=Halo%2C%20saya%20mau%20tanya%20produk%20RAM%20DDR4%20%2F%20DDR5" target="_blank" rel="noopener" class="produk-link">
+              Cek harga via WhatsApp
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="produk-card">
+          <div class="produk-thumb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 4v16M4 9h4"/></svg></div>
+          <div class="produk-body">
+            <span class="produk-cat">KOMPONEN</span>
+            <h4>SSD NVMe / SATA</h4>
+            <p>Penyimpanan cepat berbagai kapasitas untuk mempercepat kinerja PC atau laptop Anda.</p>
+            <a href="https://wa.me/6282228416336?text=Halo%2C%20saya%20mau%20tanya%20produk%20SSD%20NVMe%20%2F%20SATA" target="_blank" rel="noopener" class="produk-link">
+              Cek harga via WhatsApp
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="produk-card">
+          <div class="produk-thumb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M7 10v4M11 10v4M15 10v4"/></svg></div>
+          <div class="produk-body">
+            <span class="produk-cat">KOMPONEN</span>
+            <h4>VGA Card</h4>
+            <p>Kartu grafis untuk kebutuhan gaming maupun editing, tersedia berbagai seri sesuai budget.</p>
+            <a href="https://wa.me/6282228416336?text=Halo%2C%20saya%20mau%20tanya%20produk%20VGA%20Card" target="_blank" rel="noopener" class="produk-link">
+              Cek harga via WhatsApp
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="produk-card">
+          <div class="produk-thumb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6v6H9z"/></svg></div>
+          <div class="produk-body">
+            <span class="produk-cat">UNIT JADI</span>
+            <h4>PC Rakitan Siap Pakai</h4>
+            <p>Unit PC rakitan siap pakai untuk kerja, sekolah, maupun gaming — sudah teruji sebelum dikirim.</p>
+            <a href="https://wa.me/6282228416336?text=Halo%2C%20saya%20mau%20tanya%20produk%20PC%20Rakitan%20Siap%20Pakai" target="_blank" rel="noopener" class="produk-link">
+              Cek harga via WhatsApp
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <p class="produk-note">* Gambar produk di atas adalah ilustrasi kategori. Foto asli produk dan daftar harga dapat diminta langsung melalui WhatsApp.</p>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO (3 items) -->
+  <section class="section alt" id="portofolio">
+    <div class="container">
+      <div class="sec-head">
+        <h2>Proyek yang pernah kami kerjakan</h2>
+        <p>Sebagian pekerjaan yang telah diselesaikan untuk pelanggan.</p>
+      </div>
+
+      <div class="portfolio-grid">
+        <div class="portfolio-card">
+          <div class="portfolio-thumb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4v16M4 4h6M4 10h6M4 16h6M20 4v16M20 4h-6M20 10h-6M20 16h-6"/></svg></div>
+          <div class="portfolio-body">
+            <span class="portfolio-cat">CRIMPING KABEL</span>
+            <h4>Crimping &amp; Penataan Kabel Jaringan</h4>
+            <p>Pemasangan konektor RJ45 dan penataan kabel LAN yang rapi untuk instalasi jaringan pelanggan.</p>
+          </div>
+        </div>
+
+        <div class="portfolio-card">
+          <div class="portfolio-thumb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6v6H9z"/></svg></div>
+          <div class="portfolio-body">
+            <span class="portfolio-cat">RAKIT PC</span>
+            <h4>Perakitan PC Gaming</h4>
+            <p>Perakitan PC gaming dengan manajemen kabel rapi dan pengujian performa sebelum diserahkan.</p>
+          </div>
+        </div>
+
+        <div class="portfolio-card">
+          <div class="portfolio-thumb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="2"/><path d="M12 2v6M12 16v6M2 12h6M16 12h6"/></svg></div>
+          <div class="portfolio-body">
+            <span class="portfolio-cat">INSTALASI JARINGAN</span>
+            <h4>Instalasi Jaringan Rumah &amp; Kantor</h4>
+            <p>Pemasangan router, access point, dan jalur kabel untuk kebutuhan jaringan rumah maupun kantor kecil.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="section" id="harga">
+    <div class="container">
+      <div class="sec-head">
+        <h2>Estimasi harga layanan</h2>
+        <p>Angka di bawah adalah kisaran awal untuk gambaran budget. Harga final tergantung kondisi lokasi, spesifikasi, dan tingkat kesulitan pekerjaan.</p>
+      </div>
+
+      <div class="pricing-grid">
+        <div class="price-card">
+          <span class="price-badge">JARINGAN</span>
+          <h4>Instalasi Jaringan Rumah</h4>
+          <span class="price-from">mulai dari</span>
+          <span class="price-amount">Rp 350rb</span>
+          <ul class="price-list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Setup router &amp; WiFi</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Crimping &amp; penataan kabel</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Uji koneksi &amp; jangkauan</li>
+          </ul>
+          <a href="https://wa.me/6282228416336" target="_blank" rel="noopener" class="btn btn-ghost btn-block">Tanya Detail</a>
+        </div>
+
+        <div class="price-card featured">
+          <span class="price-badge">RAKIT PC</span>
+          <h4>Jasa Rakit PC Custom</h4>
+          <span class="price-from">mulai dari</span>
+          <span class="price-amount">Rp 250rb</span>
+          <ul class="price-list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Konsultasi pemilihan komponen</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Perakitan &amp; manajemen kabel</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Instalasi OS &amp; stress test</li>
+          </ul>
+          <a href="https://wa.me/6282228416336" target="_blank" rel="noopener" class="btn btn-primary btn-block">Tanya Detail</a>
+        </div>
+      </div>
+      <p class="pricing-disclaimer">* Harga dapat berubah tergantung lokasi, jarak, tingkat kesulitan pekerjaan, dan harga komponen di pasaran saat pemesanan. Estimasi pasti akan diberikan setelah konsultasi/survey.</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section alt" id="faq">
+    <div class="container">
+      <div class="sec-head">
+        <h2>Pertanyaan yang sering ditanyakan</h2>
+        <p>Beberapa hal yang paling sering ditanyakan calon pelanggan sebelum memesan layanan.</p>
+      </div>
+      <div class="accordion faq-wrap">
+        <details>
+          <summary>Apakah bisa survey lokasi dulu sebelum deal harga?
+            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </summary>
+          <div class="accordion-body"><p>Bisa. Untuk pekerjaan jaringan yang kompleks, kami sarankan survey singkat dulu agar estimasi harga yang diberikan akurat dan tidak berubah di tengah jalan.</p></div>
+        </details>
+        <details>
+          <summary>Apakah komponen PC dibeli sendiri atau dari NetSkagaIT?
+            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </summary>
+          <div class="accordion-body"><p>Keduanya bisa. Anda boleh membawa komponen sendiri (kami kenakan biaya jasa rakit saja), atau beli langsung dari produk yang kami jual sesuai budget.</p></div>
+        </details>
+        <details>
+          <summary>Berapa lama waktu pengerjaan rata-rata?
+            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </summary>
+          <div class="accordion-body"><p>Rakit PC biasanya 1 hari kerja, sementara instalasi jaringan tergantung skala lokasi — mulai dari beberapa jam hingga 1–2 hari untuk kantor yang lebih besar.</p></div>
+        </details>
+        <details>
+          <summary>Apakah ada garansi setelah pengerjaan selesai?
+            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </summary>
+          <div class="accordion-body"><p>Ya, kami memberikan garansi jasa untuk sebagian besar layanan. Garansi komponen mengikuti ketentuan masing-masing produsen/toko.</p></div>
+        </details>
+        <details>
+          <summary>Apakah melayani di luar kota Samarinda?
+            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </summary>
+          <div class="accordion-body"><p>Untuk area sekitar Samarinda kami datang langsung. Untuk kota lain, silakan hubungi kami dulu untuk cek ketersediaan teknisi dan biaya perjalanan tambahan.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section" id="kontak">
+    <div class="container">
+      <div class="sec-head">
+        <h2>Hubungi kami</h2>
+        <p>Ceritakan kebutuhan Anda, tim kami akan merespon dan membantu menyiapkan estimasi secepatnya.</p>
+      </div>
+
+      <div class="contact-grid">
+        <div>
+          <div class="contact-info-card">
+            <div class="contact-row">
+              <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.362 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
+              <div><strong>WhatsApp / Telepon</strong><a href="https://wa.me/6282228416336" target="_blank" rel="noopener">0822-2841-6336</a></div>
+            </div>
+            <div class="contact-row">
+              <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/></svg></div>
+              <div><strong>Email</strong><a href="mailto:[email protected]">[email protected]</a></div>
+            </div>
+            <div class="contact-row">
+              <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+              <div><strong>Area Layanan</strong><span>Samarinda &amp; sekitarnya, Kalimantan Timur</span></div>
+            </div>
+            <div class="contact-row">
+              <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+              <div><strong>Jam Operasional</strong><span>Senin–Sabtu, 08.00–20.00 WITA</span></div>
+            </div>
+          </div>
+          <div class="map-box">Peta lokasi layanan</div>
+        </div>
+
+        <form class="form-card" onsubmit="event.preventDefault(); document.getElementById('formSuccess').style.display='block'; this.reset();">
+          <div class="form-grid-2">
+            <div class="form-row">
+              <label for="name">Nama Lengkap</label>
+              <input id="name" type="text" placeholder="Nama Anda" required>
+            </div>
+            <div class="form-row">
+              <label for="phone">No. WhatsApp</label>
+              <input id="phone" type="tel" placeholder="08xx-xxxx-xxxx" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <label for="service">Jenis Layanan</label>
+            <select id="service">
+              <option>Instalasi Jaringan</option>
+              <option>Rakit PC</option>
+              <option>Tanya Produk</option>
+              <option>Lainnya</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <label for="message">Ceritakan Kebutuhan Anda</label>
+            <textarea id="message" placeholder="Contoh: butuh pasang WiFi untuk rumah 2 lantai, budget sekitar Rp 1 juta"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Kirim Permintaan</button>
+          <p class="form-note" id="formSuccess" style="display:none; color:#189A63;">Terima kasih! Pesan Anda terkirim, tim kami akan segera menghubungi Anda.</p>
+          <p class="form-note">Atau hubungi langsung lewat WhatsApp untuk respon lebih cepat.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="section" style="padding-top:0;">
+    <div class="container">
+      <div class="final-cta">
+        <div>
+          <h3>Siap membuat jaringan &amp; PC Anda bekerja lebih baik?</h3>
+          <p>Konsultasi awal tidak dipungut biaya. Ceritakan kebutuhan Anda dan dapatkan estimasi dalam hitungan menit.</p>
+        </div>
+        <div class="final-cta-actions">
+          <a href="https://wa.me/6282228416336" target="_blank" rel="noopener" class="btn btn-on-blue">Chat via WhatsApp</a>
+          <a href="#kontak" class="btn btn-ghost" style="background:transparent; border-color:rgba(255,255,255,0.5); color:#fff;">Isi Form Kontak</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-about">
+        <a href="#top" class="logo">
+          <span class="logo-mark" aria-hidden="true"></span>
+          NetSkagaIT
+        </a>
+        <p>Jasa instalasi jaringan dan rakit PC custom, serta penjualan komponen komputer untuk rumah, kantor, sekolah, dan UMKM di Samarinda dan sekitarnya.</p>
+        <div class="social-row" style="margin-top:18px;">
+          <a href="#" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+          <a href="#" aria-label="TikTok"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 12a4 4 0 104 4V4a5 5 0 005 5"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Layanan</h5>
+        <a href="#layanan">Instalasi Jaringan</a>
+        <a href="#layanan">Rakit PC</a>
+        <a href="#produk">Produk</a>
+      </div>
+      <div class="footer-col">
+        <h5>Panduan</h5>
+        <a href="#pc-builder">Pilih Komponen PC</a>
+        <a href="#panduan-jaringan">Instalasi Jaringan Rumah</a>
+        <a href="#harga">Estimasi Harga</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      <div class="footer-col">
+        <h5>Perusahaan</h5>
+        <a href="#portofolio">Portofolio</a>
+        <a href="#kontak">Kontak</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 NetSkagaIT. Seluruh hak cipta dilindungi.</span>
+      <span>Dibuat dengan fokus pada kecepatan &amp; kejelasan layanan.</span>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/6282228416336" target="_blank" rel="noopener" class="wa-float" aria-label="Chat WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.1-1.6-.8-1.9-.9-.2-.1-.4-.1-.6.1-.2.3-.7.9-.8 1-.2.2-.3.2-.5.1-.3-.1-1.1-.4-2.1-1.3-.8-.7-1.3-1.6-1.5-1.8-.2-.3 0-.4.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.2-.4.1-.2 0-.4 0-.5-.1-.1-.6-1.5-.8-2-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s1 2.5 1.1 2.7c.1.2 2 3 4.8 4.2.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.6-.7 1.9-1.3.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.6-.3z"/><path d="M12 2a10 10 0 00-8.5 15.2L2 22l4.9-1.5A10 10 0 1012 2z"/></svg>
+</a>
+
+<script>
+(function(){
+  // mobile menu
+  var burger = document.getElementById('burgerBtn');
+  var panel = document.getElementById('mobilePanel');
+  burger.addEventListener('click', function(){
+    var open = panel.classList.toggle('open');
+    panel.style.display = 'block';
+    burger.setAttribute('aria-expanded', open);
+  });
+  panel.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){ panel.classList.remove('open'); });
+  });
+
+  // reveal on scroll
+  var revealTargets = document.querySelectorAll('.service-card, .portfolio-card, .produk-card, .price-card, .process-step');
+  revealTargets.forEach(function(el){ el.classList.add('reveal'); });
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){ entry.target.classList.add('in'); io.unobserve(entry.target); }
+      });
+    }, {threshold:0.12});
+    revealTargets.forEach(function(el){ io.observe(el); });
+  } else {
+    revealTargets.forEach(function(el){ el.classList.add('in'); });
+  }
+
+  // PC builder data
+  var data = {
+    "office": {
+      hemat:   {price:"Rp 4–5 Juta",  cpu:"Intel Core i3 / AMD Ryzen 3", ram:"8GB DDR4", storage:"SSD 256GB", gpu:"Integrated Graphics", psu:"450W"},
+      standar: {price:"Rp 6–7 Juta",  cpu:"Intel Core i5 / AMD Ryzen 5", ram:"16GB DDR4", storage:"SSD 512GB", gpu:"Integrated Graphics", psu:"500W"},
+      premium: {price:"Rp 8–9 Juta",  cpu:"Intel Core i5 Gen Terbaru", ram:"16GB DDR4", storage:"SSD 1TB NVMe", gpu:"GT 1630 (opsional)", psu:"550W"}
+    },
+    "entry-gaming": {
+      hemat:   {price:"Rp 8–9 Juta",  cpu:"AMD Ryzen 5 5600 / i5-12400", ram:"16GB DDR4", storage:"SSD 512GB", gpu:"RTX 3050 / RX 6500 XT", psu:"550W"},
+      standar: {price:"Rp 11–12 Juta",cpu:"AMD Ryzen 5 7600 / i5-13400", ram:"16GB DDR5", storage:"SSD 512GB NVMe", gpu:"RTX 4060", psu:"600W"},
+      premium: {price:"Rp 14–15 Juta",cpu:"AMD Ryzen 7 7700 / i5-14600K", ram:"32GB DDR5", storage:"SSD 1TB NVMe", gpu:"RTX 4060 Ti", psu:"650W"}
+    },
+    "mid-gaming": {
+      hemat:   {price:"Rp 13–14 Juta",cpu:"AMD Ryzen 5 7600", ram:"16GB DDR5", storage:"SSD 1TB NVMe", gpu:"RTX 4060", psu:"650W"},
+      standar: {price:"Rp 18–20 Juta",cpu:"AMD Ryzen 7 7700X", ram:"32GB DDR5", storage:"SSD 1TB NVMe", gpu:"RTX 4070", psu:"750W 80+ Bronze"},
+      premium: {price:"Rp 23–25 Juta",cpu:"AMD Ryzen 7 7800X3D", ram:"32GB DDR5", storage:"SSD 2TB NVMe", gpu:"RTX 4070 Super", psu:"750W 80+ Gold"}
+    },
+    "high-gaming": {
+      hemat:   {price:"Rp 28–30 Juta",cpu:"AMD Ryzen 7 7800X3D", ram:"32GB DDR5", storage:"SSD 1TB NVMe", gpu:"RTX 4070 Ti Super", psu:"850W"},
+      standar: {price:"Rp 35–40 Juta",cpu:"AMD Ryzen 9 7900X", ram:"32GB DDR5", storage:"SSD 2TB NVMe", gpu:"RTX 4080 Super", psu:"850W 80+ Gold"},
+      premium: {price:"Rp 55 Juta+",  cpu:"AMD Ryzen 9 9950X3D", ram:"64GB DDR5", storage:"SSD 2TB Gen4", gpu:"RTX 4090", psu:"1000W 80+ Platinum"}
+    },
+    "content-creator": {
+      hemat:   {price:"Rp 15–16 Juta",cpu:"AMD Ryzen 5 7600", ram:"32GB DDR5", storage:"SSD 1TB NVMe", gpu:"RTX 4060", psu:"650W"},
+      standar: {price:"Rp 21–23 Juta",cpu:"AMD Ryzen 7 7700X", ram:"32GB DDR5", storage:"SSD 2TB NVMe", gpu:"RTX 4070", psu:"750W 80+ Gold"},
+      premium: {price:"Rp 38–42 Juta",cpu:"AMD Ryzen 9 7950X", ram:"64GB DDR5", storage:"2x 2TB NVMe", gpu:"RTX 4080 Super", psu:"850W 80+ Gold"}
+    }
+  };
+  var labels = {
+    "office":"Kerja / Sekolah Umum",
+    "entry-gaming":"Gaming Entry Level",
+    "mid-gaming":"Gaming Menengah",
+    "high-gaming":"Gaming/Streaming Kelas Atas",
+    "content-creator":"Editing & Content Creator"
+  };
+  var budgetLabels = {hemat:"Hemat", standar:"Standar", premium:"Maksimal"};
+
+  var usecaseEl = document.getElementById('usecase');
+  var budgetEl = document.getElementById('budget');
+  var titleEl = document.getElementById('buildTitle');
+  var priceEl = document.getElementById('buildPrice');
+  var specListEl = document.getElementById('specList');
+
+  function renderBuild(){
+    var uc = usecaseEl.value, bg = budgetEl.value;
+    var spec = data[uc][bg];
+    titleEl.textContent = labels[uc] + " — " + budgetLabels[bg];
+    priceEl.textContent = spec.price;
+    var rows = [
+      ["Processor", spec.cpu],
+      ["RAM", spec.ram],
+      ["Penyimpanan", spec.storage],
+      ["Graphics Card", spec.gpu],
+      ["Power Supply", spec.psu]
+    ];
+    specListEl.innerHTML = rows.map(function(r){
+      return '<div class="spec-row"><span class="k">'+r[0]+'</span><span class="v">'+r[1]+'</span></div>';
+    }).join('');
+  }
+  usecaseEl.addEventListener('change', renderBuild);
+  budgetEl.addEventListener('change', renderBuild);
+  renderBuild();
+})();
+</script>
+
+</body>
+</html>
